@@ -1,6 +1,7 @@
 {
   "conventionalCommits.scopes": [
     "README.md",
-    "Comment"
+    "Comment",
+    "DB"
   ]
 }
