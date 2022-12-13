@@ -9,3 +9,14 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+
+model Notification {
+  id          String    @id             // primary key
+  recipientId String                    // foreign key - user id
+  content     String                    // notification content
+  category    String                    // notification category
+  readAt      DateTime?                 // read date (nullable)
+  createdAt   DateTime  @default(now()) // creation date
+
+  @@index([recipientId])
+}
