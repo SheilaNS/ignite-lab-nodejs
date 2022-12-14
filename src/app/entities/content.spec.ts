@@ -1,6 +1,6 @@
 import { Content } from './content';
 
-describe('Create notification content', () => {
+describe('Create content', () => {
   it('Should be able to create a notification content', () => {
     const content = new Content('Você recebeu uma solicitação de amizade!');
 
