@@ -1,4 +1,4 @@
-import { SendNotification } from './send-notification';
+import { SendNotification } from '../src/app/use-cases/send-notification';
 
 describe('Send notification', () => {
   it('Should be able to send a notification', async () => {
