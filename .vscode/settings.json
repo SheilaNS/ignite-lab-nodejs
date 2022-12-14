@@ -4,7 +4,8 @@
     "Comment",
     "DB",
     "Config",
-    "Code"
+    "Code",
+    "Delete"
   ],
   "editor.tabSize": 2
 }
