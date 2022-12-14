@@ -2,6 +2,8 @@
   "conventionalCommits.scopes": [
     "README.md",
     "Comment",
-    "DB"
-  ]
+    "DB",
+    "Config"
+  ],
+  "editor.tabSize": 2
 }
