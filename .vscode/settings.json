@@ -5,7 +5,8 @@
     "DB",
     "Config",
     "Code",
-    "Delete"
+    "Delete",
+    "UnitTest"
   ],
   "editor.tabSize": 2
 }
