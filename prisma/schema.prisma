@@ -15,7 +15,8 @@ model Notification {
   recipientId String                    // foreign key - user id
   content     String                    // notification content
   category    String                    // notification category
-  readAt      DateTime?                 // read date (nullable)
+  readAt      DateTime?                 // notification read date (nullable)
+  canceledAt  DateTime?                 // notification cancel date (nullable)
   createdAt   DateTime  @default(now()) // creation date
 
   @@index([recipientId])
