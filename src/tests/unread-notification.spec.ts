@@ -1,32 +1,30 @@
 import { NotificationNotFound } from '@app/use-cases/errors/not-found-error';
-import { ReadNotification } from '@app/use-cases/read-notification';
+import { UnreadNotification } from '@app/use-cases/unread-notification';
 import { makeNotification } from '@test/factories/notification-fatory';
 import { InMemoryNotificationsRepository } from '@test/repositories/in-memory-notifications-repository';
 
-describe('Read notification', () => {
-  it('Should be able to read a notification', async () => {
+describe('Unread notification', () => {
+  it('Should be able to unread a notification', async () => {
     const notificationsRepository = new InMemoryNotificationsRepository();
-    const readNotification = new ReadNotification(notificationsRepository);
+    const unreadNotification = new UnreadNotification(notificationsRepository);
 
-    const notification = makeNotification();
+    const notification = makeNotification({ readAt: new Date() });
 
     await notificationsRepository.create(notification);
 
-    await readNotification.execute({
+    await unreadNotification.execute({
       notificationId: notification.id,
     });
 
-    expect(notificationsRepository.notifications[0].readAt).toEqual(
-      expect.any(Date),
-    );
+    expect(notificationsRepository.notifications[0].readAt).toBeNull();
   });
 
-  it('Should not be able to read a non existing notification', async () => {
+  it('Should not be able to unread a non existing notification', async () => {
     const notificationsRepository = new InMemoryNotificationsRepository();
-    const readNotification = new ReadNotification(notificationsRepository);
+    const unreadNotification = new UnreadNotification(notificationsRepository);
 
     expect(() => {
-      return readNotification.execute({
+      return unreadNotification.execute({
         notificationId: 'fake-notification-id',
       });
     }).rejects.toThrow(NotificationNotFound);
